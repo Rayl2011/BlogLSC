@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post | KV Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="/" style="text-decoration:none;">← Back to Home</a>
+
+<div id="post" style="margin-top:20px;">Loading post…</div>
+
+<script>
+async function loadPost() {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  if (!id) {
+    document.getElementById("post").innerHTML = "No post ID provided.";
+    return;
+  }
+
+  const res = await fetch(`/api/post?id=${id}`);
+  if (!res.ok) {
+    document.getElementById("post").innerHTML = "Post not found.";
+    return;
+  }
+
+  const post = await res.json();
+
+  document.getElementById("post").innerHTML = `
+    <div class="title">${post.title}</div>
+    <div class="date">${new Date(post.time).toLocaleString()}</div>
+    <div class="content">${post.content.replace(/\n/g, "<br>")}</div>
+  `;
+}
+
+loadPost();
+</script>
+
+</body>
+</html>

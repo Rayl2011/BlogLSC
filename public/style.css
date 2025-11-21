@@ -1,0 +1,23 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.post {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.date {
+  color: #777;
+  margin-bottom: 10px;
+}
