@@ -8,5 +8,5 @@ kv_namespaces = [
 
 [env.preview]
 kv_namespaces = [
-  { binding = "BLOG_DB", id = "YOUR_PREVIEW_KV_ID" }
+  { binding = "BLOG_DB", id = "7813d5f465764dc09a283a50337bf7a1" }
 ]
